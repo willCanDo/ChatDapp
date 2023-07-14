@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title>ChatDapp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
+    <script src="script.js"></script>
+  </head>
+  <body onload="connectMetamask()" class="p-5">
+    <div class="container text-center mb-3">
+      <button
+            type="button"
+            class="btn btn-warning"
+            onclick="connectMetamask()"
+            id="connectMetamask"
+          >
+            Connect MetaMask
+          </button>
+          <button type="button" class="btn btn-dark" onclick="getSortedMessages()">
+            Refresh Chat
+          </button>      
+    </div>
+
+    <div class="container d-flex flex-column flex-lg-row align-items-start gap-3">
+      <div id="composer" class="container px-0 sticky-top">
+        <form class="">
+          <div class="form-group my-2">
+            <label for="recipientAddress">Send to</label>
+            <input type="text" class="form-control" id="recipientAddress" placeholder="0xA123................."/>
+          </div>
+          <div class="form-group my-2">
+            <label for="message">Message</label>
+            <textarea class="form-control" id="message" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary my-2" onclick="sendMessage()">
+            Send Message
+          </button>
+        </form>
+      </div>
+      <div class="container bg-light py-4" id="messages">
+
+      </div>
+    </div>
+
+    
+  </body>
+</html>
